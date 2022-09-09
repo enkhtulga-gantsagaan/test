@@ -1,5 +1,5 @@
 # Rector - Instant Upgrades and Automated Refactoring
-Rector instantly upgrades and refactors the PHP code of your application
+Rector instantly upgrades and refactors the PHP code of your application.
 
 ## Install
 ```bash
