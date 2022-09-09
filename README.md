@@ -1,6 +1,49 @@
 # Rector - Instant Upgrades and Automated Refactoring
 Rector instantly upgrades and refactors the PHP code of your application.
 
+## Setup Environment
+Create a `docker-compose-rector.yml` file in your `compose` directory
+Content:
+```bash
+version: '3'
+services:
+  web_rector:
+    image: ${REGISTRY_HOST}/${REGISTRY_REPOSITORY}/${REGISTRY_WEB_IMAGE}:${REGISTRY_WEB_TAG_VERSION}
+    environment:
+      PROJECT_ENV: $PROJECT_ENV
+    volumes:
+      - ../app/spgamepack.net:${PHP_APP_DIR}
+```
+Change Line #28 on `.env` file to setup `PHP 7.2` Image:
+```bash
+REGISTRY_WEB_TAG_VERSION=7.234.0-local
+```
+Run following command to get the image:
+```bash
+docker-compose -f ./docker-compose-rector.yml pull
+```
+Create and start containers on background:
+```bash
+docker-compose -f ./docker-compose-rector.yml up -d
+```
+Show list containers & result:
+```bash
+docker-compose -f ./docker-compose-rector.yml ps
+tulgaa@DESKTOP-AL5KPVM:~/work/symfony-3-php55/compose$ docker-compose -f ./docker-compose-rector.yml ps
+             Name                            Command               State   Ports
+---------------------------------------------------------------------------------
+spgamepack-compose_web_rector_1   docker-php-entrypoint /sta ...   Up      80/tcp
+```
+
+Show PHP version on a running container:
+```bash
+tulgaa@DESKTOP-AL5KPVM:~/work/symfony-3-php55/compose$ docker exec -it spgamepack-compose_web_rector_1 php -v
+PHP 7.2.34 (cli) (built: Dec 11 2020 10:51:16) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
+    with Zend OPcache v7.2.34, Copyright (c) 1999-2018, by Zend Technologies
+```
+
 ## Install
 ```bash
 composer require rector/rector --dev
