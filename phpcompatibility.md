@@ -174,5 +174,7 @@ For more detailed information about setting the `testVersion`, see the README of
 
 ## Reference
 https://github.com/PHPCompatibility/PHPCompatibilitySymfony
+
 https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-versions
+
 https://github.com/squizlabs/PHP_CodeSniffer
