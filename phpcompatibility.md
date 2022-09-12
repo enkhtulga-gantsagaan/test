@@ -35,7 +35,6 @@ run the following from the command-line for install either PHP_CodeSniffer and P
 composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 composer require --dev dealerdirect/phpcodesniffer-composer-installer:"^0.7" phpcompatibility/phpcompatibility-symfony:"*"
 ```
-
 ```bash
 root@fd2159965127:/var/www/spgamepack.net# composer config allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
  dealerdirect/phpcodesniffer-composer-installer:"^0.7" phpcompatibility/phpcompatibility-symfony:"*"root@fd2159965127:/var/www/spgamepack.net# composer require --dev dealerdirect/phpcodesniffer-composer-installer:"^0.7" phpcompatibility/phpcompatibility-symfony:"*"
@@ -92,6 +91,7 @@ The installed coding standards are MySource, PEAR, PSR1, PSR2, PSR12, Squiz, Zen
 root@fd2159965127:/var/www/spgamepack.net#
 ```
 
+
 ## How to use
 Now you can use the following commands to inspect the code in your project for PHP cross-version compatibility:
 ```bash
@@ -115,9 +115,12 @@ For a project which should be compatible with PHP 7.1:
 ./vendor/bin/phpcs -p . --standard=PHPCompatibilitySymfonyPolyfillPHP71 --extensions=php --runtime-set testVersion 7.1
 ```
 Where
---standard -> choose PHP cross-version compatibility
---extensions=php -> PHP files only
-testVersion -> choose PHP version for `deprecated`/`removed` PHP features as well as the detection of code using new PHP features.
+
+`--standard` -> choose PHP cross-version compatibility
+
+`--extensions=php` -> PHP files only
+
+`testVersion` -> choose PHP version for `deprecated`/`removed` PHP features as well as the detection of code using new PHP features.
 
 Result:
 ```bash
