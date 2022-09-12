@@ -110,9 +110,8 @@ By default, you will only receive notifications about deprecated and/or removed 
 
 To get the most out of the PHPCompatibilitySymfony rulesets, you should specify a `testVersion` to check against. That will enable the checks for both deprecated/removed PHP features as well as the detection of code using new PHP features.
 
-For example:
+For a project which should be compatible with PHP 7.1:
 ```bash
-# For a project which should be compatible with PHP 7.1:
 ./vendor/bin/phpcs -p . --standard=PHPCompatibilitySymfonyPolyfillPHP71 --extensions=php --runtime-set testVersion 7.1
 ```
 Where
